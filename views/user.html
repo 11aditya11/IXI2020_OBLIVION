@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= fullName %></title>
+<meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="css/style3.css">
+</head>
+<body>
+	<!--
+	content of this area will be the content of your PDF file
+	-->
+	<div id="HTMLtoPDF">
+
+		<div  class="instaFade">
+			<div class="mainDetails">
+				<div id="headshot" class="quickFade">
+					<img src="/images/logo2.jpg" alt="Alan Smith" />
+				</div>
+
+				<div id="name">
+					<h1 class="quickFade delayTwo"><%= fullName %></h1>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div id="mainArea" class="quickFade delayFive">
+
+				<section>
+					<div class="sectionTitle">
+						<h1>Education</h1>
+					</div>
+					<div class="sectionContent">
+						<article>
+							<h2><%= level%></h2>
+							<p class="subDetails"><%= instituteName %></p>
+						</article>
+					</div>
+					<div class="clear"></div>
+				</section>
+
+			</div>
+		</div>
+
+	<!-- here we call the function that makes PDF -->
+	<a href="#" onclick="HTMLtoPDF()">Download PDF</a>
+
+	<!-- these js files are used for making PDF -->
+	<script src="js/jspdf.js"></script>
+	<script src="js/jquery-2.1.3.js"></script>
+	<script src="js/pdfFromHTML.js"></script>
+</body>
+</html>

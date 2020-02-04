@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>QnA Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles2.css">
+  </head>
+
+  <body>
+
+   <div class="main">
+     <div class='box'>
+       <div class='wave -one'></div>
+       <div class='wave -two'></div>
+       <div class='wave -three'></div>
+       <div class='title'>Precisely</div>
+     </div>
+
+      <form class="form-signin" action="/signin" method="post">
+        <div class="singIn">
+          <div class="logo" style="border-radius:100%; border:"solid 1px black" " height="70" width="70">
+              <img  src="/images/logo2.jpg" style="border-radius:100%;"  height="80" width="80"  alt="logo"> <input type="file"></img>
+          </div>
+          <div class="row">
+                  <label class="labels">*Level of education: </label>
+                  <input  class="form-control " type="text" name="eduLevel" placeholder="Level of education" required>
+           </div>
+           <div class="row">
+             <label class="labels">*Tags: </label>
+             <input  class="form-control" type="text" name="tags" placeholder="Tags" required>
+           </div>
+           <button class="btn btn-md submitData" type="submit" name="button">Submit</button>
+
+        </div>
+
+
+       </form>
+   </div>
+
+
+  </body>
+
+  </html>

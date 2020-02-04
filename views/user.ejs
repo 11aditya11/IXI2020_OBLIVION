@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= fullName %></title>
+<meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="css/style3.css">
+</head>
+<body>
+	<!--
+	content of this area will be the content of your PDF file
+	-->
+	<div id="HTMLtoPDF">
+
+		<div  class="instaFade">
+			<div class="mainDetails">
+				<div id="headshot" class="quickFade">
+					<img src="/images/logo2.jpg" alt="Alan Smith" />
+				</div>
+
+				<div id="name">
+					<h1 class="quickFade delayTwo"><%= fullName %></h1>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div id="mainArea" class="quickFade delayFive">
+
+				<section>
+					<div class="sectionTitle">
+						<h1>Education</h1>
+					</div>
+					<div class="sectionContent">
+						<article>
+							<h2><%= level%></h2>
+							<p class="subDetails"><%= instituteName %></p>
+						</article>
+					</div>
+					<div class="clear"></div>
+				</section>
+
+			</div>
+		</div>
+
+	<!-- here we call the function that makes PDF -->
+	<button href="#" onclick="HTMLtoPDF()">Download PDF</button>
+
+	<!-- these js files are used for making PDF -->
+	<script src="js/jspdf.js"></script>
+	<script src="js/jquery-2.1.3.js"></script>
+	<script>
+ function HTMLtoPDF(){
+	var pdf = new jsPDF('p', 'pt', 'letter');
+	source = $('#HTMLtoPDF')[0];
+	specialElementHandlers = {
+		'#bypassme': function(element, renderer){
+			return true
+		}
+	};
+	margins = {
+			top: 50,
+			left: 60,
+			width: 545
+		};
+	pdf.fromHTML(
+			source, // HTML string or DOM elem ref.
+			margins.left, // x coord
+			margins.top, // y coord
+			{
+				'width': margins.width, // max width of content on PDF
+				'elementHandlers': specialElementHandlers
+			},
+			function (dispose) {
+				// dispose: object with X, Y of the last line add to the PDF
+				//          this allow the insertion of new lines after html
+					pdf.save('html2pdf.pdf');
+				}
+		);
+	}
+
+	</script>
+</body>
+</html>
